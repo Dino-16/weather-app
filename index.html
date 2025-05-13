@@ -10,6 +10,7 @@
         body, html {
             font-family: 'Segoe UI', Arial, sans-serif;
             transition: background 0.4s, color 0.4s;
+            background-color: #d2e6fc;
         }
         .dark-mode {
             background-color: #121212;
@@ -23,6 +24,9 @@
         }
         .dark-mode .navbar {
             background-color: #232323 !important;
+        }
+        .dark-mode main{
+            background-color: #3b3b3b !important;
         }
         .dark-mode .btn-outline-primary {
             border-color: #ffffff;
@@ -109,32 +113,35 @@
     </style>
 </head>
 <body>
-    <header class="sticky-top">
-        <nav class="navbar shadow">
-            <div class="container-fluid d-flex align-items-center">
-                <span class="d-flex align-items-center justify-content-between">
+    <header class="sticky-top bg-light">
+        <nav class="navbar shadow z-5">
+            <div class="container-fluid d-flex align-items-center py-2">
+                <span class="d-flex align-items-center">
                     <p class="navbar-brand fs-1 mb-0"><i class="bi bi-cloud"></i></p>
                     <h3 class="mb-0">Weather Tracker</h3>
                 </span>
-                <span class="d-flex align-items-center">
+                <span class="d-flex align-items-center py-2">
                     <input class="form-control" type="search" id="city" placeholder="Enter City" style="flex-grow: 1;">
                     <button class="btn btn-outline-primary ms-2" onclick="getWeather()">Search</button>
                 </span>
-                <span class="d-flex align-items-center">
+                <span class="d-flex align-items-center justify-content-center py-2">
+                    <span class="pb-0 me-2">Switch Mode</span>
                     <i id="darkModeIcon" class="bi bi-moon border rounded btn btn-outline-primary border-primary px-2 py-2" onclick="toggleDarkMode()"></i>
                 </span>
             </div>
         </nav>
     </header>
-    <main class="bg-primary-subtle">
+    <main class="bg-primary-subtle 100vh">
         <div class="container-fluid">
             <div class="row p-5 mb-5 gap-5" style="height: 85vh;">
                 <div class="col card-minimal text-center">
                     <h1 class="pb-2 fs-4">History</h1>
                     <div class="history-list"></div>
                 </div>
-                <div class="col-6 card-minimal d-flex justify-content-center align-items-center text-center">
-                    <div style="width:100%;"><h2 id="weather"></h2></div>
+                <div class="col col-md-6 card-minimal">
+                    <h1 class="text-center pb-2 fs-4">Status</h1>
+                    <div class="d-flex justify-content-center align-items-center text-center pt-5" id="weather">
+                    </div>
                 </div>
                 <div class="col card-minimal text-center">
                     <h1 class="pb-2 fs-4">Temperature</h1>
